@@ -18,6 +18,18 @@
             --color2: #666666;
             --color-text: #000000;
             --color-text-contrast: #ffffff;
+            --text-muted: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        html.dark-mode {
+            --background: #1a1a1a;
+            --color1: #0d0d0d;
+            --color2: #333333;
+            --color-text: #e0e0e0;
+            --color-text-contrast: #ffffff;
+            --text-muted: #b0b0b0;
+            --border-color: #333333;
         }
 
         * {
@@ -32,6 +44,7 @@
             color: var(--color-text);
             font-size: 19px;
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         a {
@@ -59,12 +72,13 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
         }
 
         .nav-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             gap: 30px;
             max-width: 1100px;
             width: 100%;
@@ -82,6 +96,12 @@
             width: auto;
         }
 
+        .nav-center {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
         .nav-links {
             display: flex;
             gap: 25px;
@@ -92,6 +112,23 @@
             color: var(--color-text-contrast);
             font-size: 20px;
             letter-spacing: 0.5px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--color-text-contrast);
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+            padding: 5px;
+        }
+
+        .theme-toggle:hover {
+            opacity: 0.7;
         }
 
         /* Main Container */
@@ -110,12 +147,14 @@
             color: var(--color2);
             margin-bottom: 20px;
             font-weight: 600;
+            transition: color 0.3s;
         }
 
         .text {
             font-size: 20px;
-            color: #333333;
+            color: var(--text-muted);
             text-align: justify;
+            transition: color 0.3s;
         }
 
         /* Grid System */
@@ -158,8 +197,9 @@
 
         hr {
             border: 0;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid var(--border-color);
             margin: 40px 0;
+            transition: border-color 0.3s;
         }
 
         /* Target Section */
@@ -204,7 +244,8 @@
             color: var(--color-text-contrast);
             padding: 60px 0;
             margin-top: 60px;
-            border-top: 1px solid var(--color-text);
+            border-top: 1px solid var(--border-color);
+            transition: background-color 0.3s;
         }
 
         footer .container {
@@ -268,6 +309,7 @@
             align-items: center;
             gap: 6px;
             font-size: 16px;
+            transition: background-color 0.3s;
         }
 
         .credits i {
@@ -283,12 +325,17 @@
             <div class="nav-logo">
                 <img src="assets/images/logo-black.png" alt="Logo">
             </div>
-            <nav class="nav-links">
-                <a href="#about-section" class="pointer">Chi sono</a>
-                <a href="#target-section" class="pointer">Mi occupo di</a>
-                <a href="#orientation-section" class="pointer">Orientamento</a>
-                <a href="#contacts-section" class="pointer">Contatti</a>
-            </nav>
+            <div class="nav-center">
+                <nav class="nav-links">
+                    <a href="#about-section" class="pointer">Chi sono</a>
+                    <a href="#target-section" class="pointer">Mi occupo di</a>
+                    <a href="#orientation-section" class="pointer">Orientamento</a>
+                    <a href="#contacts-section" class="pointer">Contatti</a>
+                </nav>
+                <button class="theme-toggle" id="themeToggle" title="Toggle tema">
+                    <i class="bi bi-moon-fill"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -420,6 +467,27 @@
             <i class="bi bi-instagram"></i>
         </a>
     </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check localStorage for theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            htmlElement.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            themeToggle.innerHTML = isDarkMode ? '<i class="bi bi-sun-fill"></i>' : '<i class="bi bi-moon-fill"></i>';
+        });
+    </script>
 
 </body>
 </html>
