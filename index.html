@@ -10,396 +10,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Hubballi&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Hubballi', 'Open Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2c2a2b',
+                            gray: '#666666',
+                        },
+                    },
+                },
+            },
+        };
+    </script>
     <style>
-        :root {
-            --background: #ffffff;
-            --color1: #2c2a2b;
-            --color2: #666666;
-            --color-text: #000000;
-            --color-text-contrast: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Hubballi', 'Open Sans', sans-serif;
-        }
-
         body {
-            background-color: var(--background);
-            color: var(--color-text);
-            font-size: 19px;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .pointer {
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .pointer:hover {
-            opacity: 0.7;
-        }
-
-        /* Toolbar / Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--color2);
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1100px;
-            width: 100%;
-            padding: 0 20px;
-        }
-
-        .nav-logo {
-            height: 32px;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-logo img {
-            height: 100%;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--color-text-contrast);
-            font-size: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .mat-h2 {
-            font-size: 32px;
-            color: var(--color2);
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .text {
-            font-size: 20px;
-            color: #333333;
-            text-align: justify;
-        }
-
-        /* Grid System */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -15px;
-        }
-
-        .col-4 {
-            width: 33.333%;
-            padding: 0 15px;
-        }
-
-        .col-8 {
-            width: 66.666%;
-            padding: 0 15px;
-        }
-
-        @media (max-width: 768px) {
-            .col-4, .col-8 {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* Profile Section */
-        .profile-img {
-            width: 100%;
-            max-width: 290px;
-            height: auto;
-            border-radius: 4px;
-            display: block;
-            margin: 0 auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #e0e0e0;
-            margin: 40px 0;
-        }
-
-        /* Target Section */
-        .target-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .target-card img {
-            height: 200px;
-            width: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .target-card .mat-h2 {
-            margin-bottom: 12px;
-        }
-
-        .target-card .text {
-            text-align: left;
-        }
-
-        /* Orientation Section */
-        .orientation-img {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color1);
-            color: var(--color-text-contrast);
-            padding: 60px 0;
-            margin-top: 60px;
-            border-top: 1px solid var(--color-text);
-        }
-
-        footer .container {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-        .footer-brand-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            font-size: 22px;
-        }
-
-        .footer-brand img {
-            height: 50px;
-        }
-
-        .footer-socials {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            align-items: center;
-            height: 100%;
-        }
-
-        .footer-socials i {
-            font-size: 2.2rem;
-            color: #ffffff;
-        }
-
-        .contacts-detail {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 19px;
-        }
-
-        .contacts-detail i {
-            font-size: 1.8rem;
-            color: #ffffff;
-        }
-
-        /* Credits */
-        .credits {
-            background-color: var(--color2);
-            color: var(--color-text-contrast);
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            font-size: 16px;
-        }
-
-        .credits i {
-            font-size: 1rem;
+            font-family: 'Hubballi', 'Open Sans', sans-serif;
         }
     </style>
 </head>
-<body>
+<body class="bg-white text-black text-lg leading-relaxed">
 
     <!-- Navigation Bar -->
-    <header>
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAAIhCAYAAAAGga9iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABwYSURBVHhe7dpJYhy3sgVQ++1/z/+LFiW[...]
-            </div>
-            <nav class="nav-links">
-                <a href="#about-section" class="pointer">Chi sono</a>
-                <a href="#target-section" class="pointer">Mi occupo di</a>
-                <a href="#orientation-section" class="pointer">Orientamento</a>
-                <a href="#contacts-section" class="pointer">Contatti</a>
+    <header class="sticky top-0 z-50 bg-brand-gray shadow-md">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 px-4 py-3">
+            <a href="#" class="text-white text-xl font-semibold tracking-wide">Alessandro Macchi</a>
+            <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+                <a href="#about-section" class="text-white text-lg tracking-wide hover:opacity-70 transition-opacity">Chi sono</a>
+                <a href="#target-section" class="text-white text-lg tracking-wide hover:opacity-70 transition-opacity">Mi occupo di</a>
+                <a href="#orientation-section" class="text-white text-lg tracking-wide hover:opacity-70 transition-opacity">Orientamento</a>
+                <a href="#contacts-section" class="text-white text-lg tracking-wide hover:opacity-70 transition-opacity">Contatti</a>
             </nav>
         </div>
     </header>
 
-    <div class="container">
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
 
         <!-- Chi sono -->
-        <section id="about-section">
-            <div class="mat-h2">Chi sono</div>
-            <div class="row">
-                <div class="col-4">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQ[...]
+        <section id="about-section" class="mb-10">
+            <h2 class="text-3xl font-semibold text-brand-gray mb-5">Chi sono</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+                <div class="md:col-span-1">
+                    <img src="images/placeholder-photo.svg" alt="Foto di Alessandro Macchi" class="w-full max-w-[290px] h-auto rounded mx-auto shadow-md">
                 </div>
-                <div class="col-8">
-                    <div class="text">
-                        Laureato in Psicologia del ciclo di vita e contesti presso l'Università degli studi di Firenze.<br>
-                        Psicologo iscritto all'albo dell'Ordine degli Psicologi della Toscana al numero 9663.<br>
-                        Specializzato in psicoterapia cognitivo-costruttivista ad orientamento evolutivo presso la Scuola Bolognese di psicoterapia cognitiva.<br>
-                        Mi occupo di sostegno psicologico a minori e adulti, supporto alla genitorialità e valutazione delle competenze genitoriali presso la SdS Valdinievole.<br>
-                        Svolgo la libera professione presso lo studio Percorsi di Pontedera (PI) dove mi occupo di adolescenti e adulti.
-                    </div>
+                <div class="md:col-span-2 text-xl text-gray-800 text-justify">
+                    Laureato in Psicologia del ciclo di vita e contesti presso l'Università degli studi di Firenze.<br>
+                    Psicologo iscritto all'albo dell'Ordine degli Psicologi della Toscana al numero 9663.<br>
+                    Specializzato in psicoterapia cognitivo-costruttivista ad orientamento evolutivo presso la Scuola Bolognese di psicoterapia cognitiva.<br>
+                    Mi occupo di sostegno psicologico a minori e adulti, supporto alla genitorialità e valutazione delle competenze genitoriali presso la SdS Valdinievole.<br>
+                    Svolgo la libera professione presso lo studio Percorsi di Pontedera (PI) dove mi occupo di adolescenti e adulti.
                 </div>
             </div>
         </section>
 
-        <hr>
+        <hr class="border-t border-gray-200 my-10">
 
         <!-- Mi occupo di -->
-        <section id="target-section">
-            <div class="mat-h2">Mi occupo di</div>
-            <div class="row target">
+        <section id="target-section" class="mb-10">
+            <h2 class="text-3xl font-semibold text-brand-gray mb-5">Mi occupo di</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Adulti -->
-                <div class="col-4">
-                    <div class="target-card">
-                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQ[...]
-                        <div class="mat-h2">Adulti</div>
-                        <div class="text">
-                            Attraverso il colloquio clinico accompagno la persona ad una maggiore consapevolezza dei propri schemi mentali, del significato personale che ricopre il disturbo psico[...]
-                        </div>
-                    </div>
+                <div class="flex flex-col items-center text-center">
+                    <img src="images/placeholder-photo.svg" alt="Adulti" class="h-[200px] w-[200px] object-cover rounded-full mb-4 shadow-md">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-3">Adulti</h3>
+                    <p class="text-xl text-gray-800 text-left">
+                        Attraverso il colloquio clinico accompagno la persona ad una maggiore consapevolezza dei propri schemi mentali, del significato personale che ricopre il disturbo.
+                    </p>
                 </div>
                 <!-- Adolescenti -->
-                <div class="col-4">
-                    <div class="target-card">
-                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQ[...]
-                        <div class="mat-h2">Adolescenti</div>
-                        <div class="text">
-                            L'età adolescenziale è il periodo più critico nell'arco dello sviluppo, spesso caratterizzato da disagio e malessere nei ragazzi. La ricerca di un'immagine di[...]
-                        </div>
-                    </div>
+                <div class="flex flex-col items-center text-center">
+                    <img src="images/placeholder-photo.svg" alt="Adolescenti" class="h-[200px] w-[200px] object-cover rounded-full mb-4 shadow-md">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-3">Adolescenti</h3>
+                    <p class="text-xl text-gray-800 text-left">
+                        L'età adolescenziale è il periodo più critico nell'arco dello sviluppo, spesso caratterizzato da disagio e malessere nei ragazzi.
+                    </p>
                 </div>
                 <!-- Genitorialità -->
-                <div class="col-4">
-                    <div class="target-card">
-                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQ[...]
-                        <div class="mat-h2">Genitorialità</div>
-                        <div class="text">
-                            La genitorialità è un tema che negli ultimi anni è sempre più sotto la lente di osservazione, spesso si sottovalutano le implicazioni dell'essere genitore , in p[...]
-                        </div>
-                    </div>
+                <div class="flex flex-col items-center text-center">
+                    <img src="images/placeholder-photo.svg" alt="Genitorialità" class="h-[200px] w-[200px] object-cover rounded-full mb-4 shadow-md">
+                    <h3 class="text-2xl font-semibold text-brand-gray mb-3">Genitorialità</h3>
+                    <p class="text-xl text-gray-800 text-left">
+                        La genitorialità è un tema che negli ultimi anni è sempre più sotto la lente di osservazione, spesso si sottovalutano le implicazioni dell'essere genitore.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <hr>
+        <hr class="border-t border-gray-200 my-10">
 
         <!-- Orientamento -->
-        <section id="orientation-section">
-            <div class="mat-h2">Orientamento</div>
-            <div class="row">
-                <div class="col-4">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQ[...]
+        <section id="orientation-section" class="mb-10">
+            <h2 class="text-3xl font-semibold text-brand-gray mb-5">Orientamento</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+                <div class="md:col-span-1">
+                    <img src="images/placeholder-photo.svg" alt="Orientamento" class="w-full max-w-[320px] h-auto rounded mx-auto shadow-md">
                 </div>
-                <div class="col-8 text">
-                    Il modello di riferimento è la psicoterapia cognitiva, in particolare la svolta costruttivista ed evolutiva intrapresa da Vittorio Guidano e Gianni Liotti. Ogni essere umano [...]
+                <div class="md:col-span-2 text-xl text-gray-800 text-justify">
+                    Il modello di riferimento è la psicoterapia cognitiva, in particolare la svolta costruttivista ed evolutiva intrapresa da Vittorio Guidano e Gianni Liotti.
                 </div>
             </div>
         </section>
 
-    </div>
+    </main>
 
     <!-- Contatti / Footer -->
-    <footer id="contacts-section">
-        <div class="container">
-            <div class="row" style="align-items: center;">
-                <div class="col-4 footer-brand-container">
-                    <div class="footer-brand">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAuQAAAIhCAYAAAAGga9iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABwYSURBVHhe7dpJYhy3sgVQ++1[...]
-                        <div>Alessandro Macchi</div>
-                    </div>
+    <footer id="contacts-section" class="bg-brand-dark text-white pt-16 pb-16 mt-16 border-t border-black">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="flex flex-col items-center justify-center text-center gap-2 text-2xl">
+                    <i class="bi bi-person-circle text-5xl"></i>
+                    <div>Alessandro Macchi</div>
                 </div>
-                <div class="col-4">
-                    <div class="footer-socials">
-                        <a href="https://www.linkedin.com/in/alessandro-macchi-6aa5271a1/" target="_blank" class="pointer">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                        <a href="https://it-it.facebook.com/alessandro.macchi.14" target="_blank" class="pointer">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                    </div>
+                <div class="flex justify-center items-center gap-5">
+                    <a href="https://www.linkedin.com/in/alessandro-macchi-6aa5271a1/" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity">
+                        <i class="bi bi-linkedin text-4xl"></i>
+                    </a>
+                    <a href="https://it-it.facebook.com/alessandro.macchi.14" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity">
+                        <i class="bi bi-facebook text-4xl"></i>
+                    </a>
                 </div>
-                <div class="col-4">
-                    <div class="contacts-detail">
-                        <a href="tel:3398404156" class="pointer"><i class="bi bi-phone"></i></a>
+                <div class="flex flex-col gap-3 items-center md:items-start">
+                    <div class="flex items-center gap-3">
+                        <a href="tel:3398404156" class="hover:opacity-70 transition-opacity"><i class="bi bi-phone text-2xl"></i></a>
                         <span>3398404156</span>
                     </div>
-                    <div class="contacts-detail">
-                        <a href="https://www.google.com/maps/place/Via+Sacco+e+Vanzetti,+9%2FD,+56025+Pontedera+PI/@43.6638163,10.6282107,17z/data=!3m1!4b1!4m5!3m4!1s0x132a75f1a0ebe19d:0x6d241caa[...]
+                    <div class="flex items-center gap-3">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Via+Sacco+e+Vanzetti+9%2FD%2C+56025+Pontedera+PI" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity"><i class="bi bi-geo-alt text-2xl"></i></a>
                         <span>Via Sacco e Vanzetti 9/D, Pontedera (PI)</span>
                     </div>
-                    <div class="contacts-detail">
-                        <a href="mailto:dott.macchialessandro@gmail.com" class="pointer"><i class="bi bi-envelope"></i></a>
+                    <div class="flex items-center gap-3">
+                        <a href="mailto:dott.macchialessandro@gmail.com" class="hover:opacity-70 transition-opacity"><i class="bi bi-envelope text-2xl"></i></a>
                         <span>dott.macchialessandro@gmail.com</span>
                     </div>
                 </div>
@@ -408,13 +154,13 @@
     </footer>
 
     <!-- Credits -->
-    <div class="credits">
+    <div class="bg-brand-gray text-white py-4 flex justify-center items-center gap-2 text-base">
         <i class="bi bi-code"></i>
         <span>with</span>
-        <i class="bi bi-heart-fill" style="color: #e74c3c;"></i>
+        <i class="bi bi-heart-fill text-red-500"></i>
         <span>by</span>
         <span>Andrea Della Maggiora</span>
-        <a class="credits-contacts pointer" href="https://www.instagram.com/fedrozenzero" target="_blank">
+        <a class="hover:opacity-70 transition-opacity" href="https://www.instagram.com/fedrozenzero" target="_blank" rel="noopener noreferrer">
             <i class="bi bi-instagram"></i>
         </a>
     </div>
