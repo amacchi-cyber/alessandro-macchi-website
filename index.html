@@ -12,85 +12,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Hubballi', 'Open Sans', 'sans-serif'],
                     },
-                    colors: {
-                        brand: {
-                            dark: '#2c2a2b',
-                            gray: '#666666',
-                        },
-                    },
                 },
             },
         };
     </script>
-    <style>
-        :root {
-            --background: #ffffff;
-            --color1: #2c2a2b;
-            --color2: #666666;
-            --color-text: #000000;
-            --color-text-contrast: #ffffff;
-            --text-muted: #333333;
-            --border-color: #e0e0e0;
-            --heading-color: #2c2a2b;
-        }
-
-        html.dark-mode {
-            --background: #1a1a1a;
-            --color1: #0d0d0d;
-            --color2: #333333;
-            --color-text: #e0e0e0;
-            --color-text-contrast: #ffffff;
-            --text-muted: #b0b0b0;
-            --border-color: #333333;
-            --heading-color: #e0e0e0;
-        }
-
-        body {
-            background-color: var(--background);
-            color: var(--color-text);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--heading-color);
-            transition: color 0.3s;
-        }
-
-        p {
-            color: var(--text-muted);
-            transition: color 0.3s;
-        }
-
-        hr {
-            border-color: var(--border-color);
-            transition: border-color 0.3s;
-        }
-
-        header {
-            background-color: var(--color2);
-            transition: background-color 0.3s;
-        }
-
-        footer {
-            background-color: var(--color1);
-            transition: background-color 0.3s;
-        }
-
-        .credits {
-            background-color: var(--color2);
-            transition: background-color 0.3s;
-        }
-    </style>
 </head>
-<body class="bg-white text-black text-lg leading-relaxed">
+<body class="bg-white dark:bg-gray-900 text-black dark:text-gray-200 transition-colors duration-300">
 
     <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 shadow-md">
+    <header class="sticky top-0 z-50 bg-gray-500 dark:bg-gray-700 shadow-md transition-colors duration-300">
         <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
             <a href="#" class="flex items-center h-8">
                 <img src="assets/images/logo-black.png" alt="Logo" class="h-full w-auto">
@@ -118,12 +54,12 @@
 
         <!-- Chi sono -->
         <section id="about-section" class="mb-10">
-            <h2 class="text-3xl font-semibold mb-5">Chi sono</h2>
+            <h2 class="text-3xl font-semibold mb-5 text-gray-800 dark:text-gray-100 transition-colors duration-300">Chi sono</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
                 <div class="md:col-span-1">
                     <img src="assets/images/profile-picture.jpg" alt="Foto Profilo" class="w-full max-w-xs rounded shadow-md">
                 </div>
-                <div class="md:col-span-2 text-xl text-justify">
+                <div class="md:col-span-2 text-xl text-justify text-gray-700 dark:text-gray-300 transition-colors duration-300">
                     Laureato in Psicologia del ciclo di vita e contesti presso l'Università degli studi di Firenze.<br>
                     Psicologo iscritto all'albo dell'Ordine degli Psicologi della Toscana al numero 9663.<br>
                     Specializzato in psicoterapia cognitivo-costruttivista ad orientamento evolutivo presso la Scuola Bolognese di psicoterapia cognitiva.<br>
@@ -133,49 +69,49 @@
             </div>
         </section>
 
-        <hr class="my-10">
+        <hr class="my-10 border-gray-300 dark:border-gray-600 transition-colors duration-300">
 
         <!-- Mi occupo di -->
         <section id="target-section" class="mb-10">
-            <h2 class="text-3xl font-semibold mb-5">Mi occupo di</h2>
+            <h2 class="text-3xl font-semibold mb-5 text-gray-800 dark:text-gray-100 transition-colors duration-300">Mi occupo di</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Adulti -->
                 <div class="flex flex-col items-center text-center">
                     <img src="assets/images/target/adults.jpg" alt="Adulti" class="w-48 h-48 object-cover rounded-full shadow-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-3">Adulti</h3>
-                    <p class="text-xl text-left">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-100 transition-colors duration-300">Adulti</h3>
+                    <p class="text-xl text-left text-gray-700 dark:text-gray-300 transition-colors duration-300">
                         Attraverso il colloquio clinico accompagno la persona ad una maggiore consapevolezza dei propri schemi mentali, del significato personale che ricopre il disturbo psicologico e l'importanza della relazione terapeutica nel processo di cambiamento.
                     </p>
                 </div>
                 <!-- Adolescenti -->
                 <div class="flex flex-col items-center text-center">
                     <img src="assets/images/target/teenager.jpg" alt="Adolescenti" class="w-48 h-48 object-cover rounded-full shadow-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-3">Adolescenti</h3>
-                    <p class="text-xl text-left">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-100 transition-colors duration-300">Adolescenti</h3>
+                    <p class="text-xl text-left text-gray-700 dark:text-gray-300 transition-colors duration-300">
                         L'età adolescenziale è il periodo più critico nell'arco dello sviluppo, spesso caratterizzato da disagio e malessere nei ragazzi. La ricerca di un'immagine di sé stabile rappresenta uno dei compiti evolutivi principali da affrontare.
                     </p>
                 </div>
                 <!-- Genitorialità -->
                 <div class="flex flex-col items-center text-center">
                     <img src="assets/images/target/parents.jpg" alt="Genitorialità" class="w-48 h-48 object-cover rounded-full shadow-md mb-4">
-                    <h3 class="text-2xl font-semibold mb-3">Genitorialità</h3>
-                    <p class="text-xl text-left">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-gray-100 transition-colors duration-300">Genitorialità</h3>
+                    <p class="text-xl text-left text-gray-700 dark:text-gray-300 transition-colors duration-300">
                         La genitorialità è un tema che negli ultimi anni è sempre più sotto la lente di osservazione, spesso si sottovalutano le implicazioni dell'essere genitore, in particolare le competenze richieste nel favorire lo sviluppo armonico dei figli.
                     </p>
                 </div>
             </div>
         </section>
 
-        <hr class="my-10">
+        <hr class="my-10 border-gray-300 dark:border-gray-600 transition-colors duration-300">
 
         <!-- Orientamento -->
         <section id="orientation-section" class="mb-10">
-            <h2 class="text-3xl font-semibold mb-5">Orientamento</h2>
+            <h2 class="text-3xl font-semibold mb-5 text-gray-800 dark:text-gray-100 transition-colors duration-300">Orientamento</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
                 <div class="md:col-span-1">
                     <img src="assets/images/orientation.jpg" alt="Orientamento" class="w-full rounded shadow-md">
                 </div>
-                <div class="md:col-span-2 text-xl text-justify">
+                <div class="md:col-span-2 text-xl text-justify text-gray-700 dark:text-gray-300 transition-colors duration-300">
                     Il modello di riferimento è la psicoterapia cognitiva, in particolare la svolta costruttivista ed evolutiva intrapresa da Vittorio Guidano e Gianni Liotti. Ogni essere umano sviluppa fin dalla nascita una propria organizzazione cognitiva, emotiva e affettiva che rappresenta la sua identità personale e il suo modo di stare nel mondo.
                 </div>
             </div>
@@ -184,7 +120,7 @@
     </main>
 
     <!-- Contatti / Footer -->
-    <footer id="contacts-section" class="text-white pt-16 pb-16 mt-16 border-t border-gray-700">
+    <footer id="contacts-section" class="bg-gray-900 dark:bg-gray-950 text-white pt-16 pb-16 mt-16 border-t border-gray-700 dark:border-gray-700 transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <!-- Brand -->
@@ -237,7 +173,7 @@
     </footer>
 
     <!-- Credits -->
-    <div class="credits text-white py-4 flex justify-center items-center gap-2 text-base">
+    <div class="bg-gray-500 dark:bg-gray-700 text-white py-4 flex justify-center items-center gap-2 text-base transition-colors duration-300">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"></path>
         </svg>
@@ -264,15 +200,15 @@
         // Check localStorage for theme preference
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
-            htmlElement.classList.add('dark-mode');
+            htmlElement.classList.add('dark');
             moonIcon.classList.add('hidden');
             sunIcon.classList.remove('hidden');
         }
 
         // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
-            htmlElement.classList.toggle('dark-mode');
-            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            htmlElement.classList.toggle('dark');
+            const isDarkMode = htmlElement.classList.contains('dark');
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
             
             moonIcon.classList.toggle('hidden');
