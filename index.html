@@ -29,7 +29,7 @@
     <header class="sticky top-0 z-50 bg-gray-500 dark:bg-gray-700 shadow-md transition-colors duration-300">
         <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
             <a href="#" class="flex items-center h-8">
-                <img id="logo" src="assets/images/logo-black.png" alt="Logo" class="h-full w-auto">
+                <img id="logo" src="assets/images/logo-white.png" alt="Logo" class="h-full w-auto">
             </a>
             <nav class="flex items-center gap-8">
                 <div class="flex gap-6 items-center">
@@ -228,6 +228,8 @@
             moonIcon.classList.add('hidden');
             sunIcon.classList.remove('hidden');
             logo.src = 'assets/images/logo-white.png';
+        } else {
+            logo.src = 'assets/images/logo-white.png';
         }
 
         themeToggle.addEventListener('click', () => {
@@ -236,7 +238,7 @@
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
             moonIcon.classList.toggle('hidden');
             sunIcon.classList.toggle('hidden');
-            logo.src = isDarkMode ? 'assets/images/logo-white.png' : 'assets/images/logo-black.png';
+            logo.src = 'assets/images/logo-white.png';
         });
     </script>
 
